@@ -29,11 +29,9 @@ namespace Entities.Models
         
         
         public ICollection<ContactInfo> ContactInfos { get; set; } = new List<ContactInfo>();
-        public IReadOnlyCollection<ContactInfo> PhoneNumberInfos => ContactInfos.Where(m => m.InformationType == ContactInfo.InfoType.Phone).ToList();
+        public IReadOnlyCollection<ContactInfo> PhoneInfos => ContactInfos.Where(m => m.InformationType == ContactInfo.InfoType.Phone).ToList();
         public IReadOnlyCollection<ContactInfo> EmailInfos => ContactInfos.Where(m => m.InformationType == ContactInfo.InfoType.Email).ToList();
         public IReadOnlyCollection<ContactInfo> LocationInfos => ContactInfos.Where(m => m.InformationType == ContactInfo.InfoType.Location).ToList();
 
-
-       
     }
 }
