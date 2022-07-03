@@ -37,18 +37,7 @@ namespace DbContext
 
         protected override void OnModelCreating(msContext.ModelBuilder modelBuilder)
         {
-
-
-            //var basePath = Directory.GetCurrentDirectory() + string.Format("{0}..{0}Contact.Api", Path.DirectorySeparatorChar);
-
-            //msContext.DbContextOptionsBuilder<ContactContext> builder = new();
-            //IConfiguration configuration = new ConfigurationBuilder()
-            //    .SetBasePath(basePath)
-            //    .AddJsonFile("appsettings.json")
-            //    .Build();
-
-            //builder.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
-
+            
             
 
             //contact
@@ -58,26 +47,26 @@ namespace DbContext
             modelBuilder.Entity<Contact>().Property(m => m.CompanyName).HasMaxLength(150);
             modelBuilder.Entity<Contact>().Property(m => m.CreationDate).IsRequired();
             modelBuilder.Entity<Contact>().Property(m => m.ModifiedDate);
-            modelBuilder.Entity<Contact>().Ignore(m => m.PhoneInfos);
-            modelBuilder.Entity<Contact>().Ignore(m => m.EmailInfos);
-            modelBuilder.Entity<Contact>().Ignore(m => m.LocationInfos);
+            //modelBuilder.Entity<Contact>().Ignore(m => m.PhoneInfos);
+            //modelBuilder.Entity<Contact>().Ignore(m => m.EmailInfos);
+            //modelBuilder.Entity<Contact>().Ignore(m => m.LocationInfos);
 
 
 
             //contactInfo
-            modelBuilder.Entity<Contact>().HasKey(m => m.Id);
-            modelBuilder.Entity<ContactInfo>().Property(m => m.Content).HasMaxLength(200).IsRequired();
+            modelBuilder.Entity<ContactInfo>().HasKey(m => m.Id);
+            modelBuilder.Entity<ContactInfo>().Property(m => m.Content).HasMaxLength(300).IsRequired();
             modelBuilder.Entity<ContactInfo>().Property(m => m.InformationType).HasConversion<short>();
-            modelBuilder.Entity<Contact>().Property(m => m.CreationDate).IsRequired();
-            modelBuilder.Entity<Contact>().Property(m => m.ModifiedDate);
+            modelBuilder.Entity<ContactInfo>().Property(m => m.CreationDate).IsRequired();
+            modelBuilder.Entity<ContactInfo>().Property(m => m.ModifiedDate);
             modelBuilder.Entity<ContactInfo>().HasOne(m => m.Contact).WithMany(m => m.ContactInfos);
 
 
             //reportStatus
-            modelBuilder.Entity<Contact>().HasKey(m => m.Id);
+            modelBuilder.Entity<ReportStatus>().HasKey(m => m.Id);
             modelBuilder.Entity<ReportStatus>().Property(m => m.Status).IsRequired();
-            modelBuilder.Entity<Contact>().Property(m => m.CreationDate).IsRequired();
-            modelBuilder.Entity<Contact>().Property(m => m.ModifiedDate);
+            modelBuilder.Entity<ReportStatus>().Property(m => m.CreationDate).IsRequired();
+            modelBuilder.Entity<ReportStatus>().Property(m => m.ModifiedDate);
            
         }
 

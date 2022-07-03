@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Entities.Models
@@ -15,9 +16,9 @@ namespace Entities.Models
 
         public InfoType InformationType { get;  set; }
 
-        public string Content { get; private set; }
+        public string Content { get; set; }
 
-        public Contact Contact { get; private set; }
+        public Contact Contact { get; set; }
 
         public ContactInfo()
         { }
