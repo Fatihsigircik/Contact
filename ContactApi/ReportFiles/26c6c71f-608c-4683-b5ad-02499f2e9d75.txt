@@ -1,0 +1,2 @@
+Lokasyon			Kişi Sayısı			Telefon Numarası Sayısı
+istanbul			1				1

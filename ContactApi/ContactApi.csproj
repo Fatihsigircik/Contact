@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DbContext\DbContext.csproj" />
+    <ProjectReference Include="..\KafkaInfrastructure\KafkaInfrastructure.csproj" />
   </ItemGroup>
 
 </Project>
